@@ -11,9 +11,12 @@ class Users (models.Model):
     def upload_photo(self, filename):
         path = 'HRM/photo/{}'.format(filename)
         return path
-    photo = models.ImageField(upload_to = upload_photo, blank = True)
+    photo = models.ImageField(upload_to = upload_photo, null=True, blank = True)
 
     def upload_file(self, filename):
-        path = 'HRM/photo/{}'.format(filename)
+        path = 'HRM/file/{}'.format(filename)
         return path
-    resume = models.ImageField(upload_to = upload_file, blank = True)
+    resume = models.ImageField(upload_to = upload_file, null=True, blank = True)
+
+    def __str__(self):
+        return f"{self.employee_id} - {self.name}"
