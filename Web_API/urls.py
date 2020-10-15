@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
-from HRM.api import UserList
+from HRM.api import UserList, UserDetail
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^api/users_list/$',UserList.as_view(), name='users_list')
+    url(r'^api/users_list/$',UserList.as_view(), name='users_list'),
+    url(r'^api/users_list/(?P<employee_id>\d+)/$',UserDetail.as_view(), name='users_list')
 ]

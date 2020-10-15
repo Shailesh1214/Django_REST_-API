@@ -3,7 +3,9 @@ from HRM.models import Users
 
 
 class UsersSerializer(serializers.ModelSerializer):
-
+    employee_id = serializers.CharField(required=False)
+    name = serializers.CharField(required=False)
+    ranking = serializers.FloatField(required=False)
     class Meta:
         model = Users
         #fields = {'name', 'employee_id'}
